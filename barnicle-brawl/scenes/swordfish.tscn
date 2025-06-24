@@ -1,6 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://idinsh1ryrnc"]
+[gd_scene load_steps=34 format=3 uid="uid://idinsh1ryrnc"]
 
-[ext_resource type="Texture2D" uid="uid://c4hcv0urtia4y" path="res://art/characters/pixilart-sprite.png" id="1_6cvyu"]
+[ext_resource type="Texture2D" uid="uid://bg55jelsbp54q" path="res://art/characters/swordfish.png" id="1_6cvyu"]
+[ext_resource type="Script" uid="uid://cam60tilgnidi" path="res://scripts/swordfish.gd" id="1_nxoin"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nxoin"]
+radius = 42.0
+height = 252.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxoin"]
 atlas = ExtResource("1_6cvyu")
@@ -94,6 +99,30 @@ region = Rect2(750, 0, 150, 150)
 atlas = ExtResource("1_6cvyu")
 region = Rect2(900, 0, 150, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi6qk"]
+atlas = ExtResource("1_6cvyu")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dogx"]
+atlas = ExtResource("1_6cvyu")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekkmq"]
+atlas = ExtResource("1_6cvyu")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14hmo"]
+atlas = ExtResource("1_6cvyu")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4mbn"]
+atlas = ExtResource("1_6cvyu")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7evha"]
+atlas = ExtResource("1_6cvyu")
+region = Rect2(900, 0, 150, 150)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_pi6qk"]
 animations = [{
 "frames": [{
@@ -173,24 +202,45 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi6qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dogx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekkmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14hmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4mbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7evha")
+}],
+"loop": true,
+"name": &"run",
+"speed": 30.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cvyu"]
-radius = 6.0
-height = 60.0
+[node name="swordfish" type="CharacterBody2D"]
+script = ExtResource("1_nxoin")
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(193, 337)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nxoin")
 
 [node name="swordfish_ani" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(183, 335)
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_pi6qk")
-animation = &"idle"
+animation = &"dash"
 autoplay = "idle"
-frame_progress = 0.403904
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(2, 1)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_6cvyu")
+frame_progress = 0.673026

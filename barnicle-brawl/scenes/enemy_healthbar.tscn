@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxu85yhp1h2ww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sramp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpxl6"]
+bg_color = Color(0.733156, 0, 0.253078, 1)
+
+[node name="enemy_healthbar" type="ProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -818.0
+offset_bottom = -615.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_sramp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mpxl6")
+value = 100.0
